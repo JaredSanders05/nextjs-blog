@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Canvas from './components/Canvas';
-import { Dot } from './components/Dot';
+import Canvas from './/api/Canvas';
+
 
 const Home = () => {
   const numDots = 50;
-  const [canvasWidth, setCanvasWidth] = useState(window.innerWidth);
-  const [canvasHeight, setCanvasHeight] = useState(window.innerHeight);
+  const [canvasWidth, setCanvasWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const [canvasHeight, setCanvasHeight] = useState(typeof window !== 'undefined' ? window.innerHeight : 0);
 
   useEffect(() => {
     const handleResize = () => {

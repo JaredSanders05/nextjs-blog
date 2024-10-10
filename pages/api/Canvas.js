@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 
-
 const Canvas = ({ dots, range }) => {
   const canvasRef = useRef(null);
 
@@ -78,7 +77,7 @@ const Canvas = ({ dots, range }) => {
     animateDots();
   }, [dots]);
 
-  return <canvas ref={canvasRef} width={window.innerWidth} height={window.innerHeight} />;
+  return <canvas ref={canvasRef} width={typeof window !== 'undefined' ? window.innerWidth : 0} height={typeof window !== 'undefined' ? window.innerHeight : 0} />;
 };
 
 export default Canvas;

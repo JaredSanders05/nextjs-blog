@@ -1,11 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-
-interface Dot {
-  x: number;
-  y: number;
-  speedX: number;
-  speedY: number;
-}
+import { Dot } from './Dot';
 
 interface CanvasProps {
   dots: Dot[];

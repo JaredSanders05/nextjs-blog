@@ -2,6 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import Canvas from './components/Canvas';
 
+interface Dot {
+  x: number;
+  y: number;
+  speedX: number;
+  speedY: number;
+}
+
 const Home: React.FC = () => {
   const numDots = 50;
   const [canvasWidth, setCanvasWidth] = useState(window.innerWidth);

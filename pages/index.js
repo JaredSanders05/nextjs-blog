@@ -12,11 +12,6 @@ const Home = () => {
       setCanvasWidth(window.innerWidth);
       setCanvasHeight(window.innerHeight);
     };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
   }, []);
 
   const dots = Array.from({ length: numDots }, () => ({

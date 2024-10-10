@@ -1,7 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const Canvas = ({ dots, range }) => {
   const canvasRef = useRef(null);
+  const [screenWidth, setScreenWidth] = useState(1920);
+  const [screenHeight, setScreenHeight] = useState(1080);
 
   const animateDots = () => {
     const canvas = canvasRef.current;
@@ -15,8 +17,8 @@ const Canvas = ({ dots, range }) => {
       context.beginPath();
       context.arc(dot.x, dot.y, 2, 0, 2 * Math.PI);
       context.fill();
-      dot.x += dot.speedX;
-      dot.y += dot.speedY;
+      dot.x += dot.speedX*2;
+      dot.y += dot.speedY*2;
 
       // Adjust boundary conditions as needed
       if (dot.x <= -10 || dot.x >= canvas.width + 10 || dot.y <= -10 || dot.y >= canvas.height + 10) {
@@ -74,10 +76,22 @@ const Canvas = ({ dots, range }) => {
   };
 
   useEffect(() => {
+    // Update screen dimensions when the window resizes
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+      setScreenHeight(window.innerHeight);
+    };
+
+    handleResize();
+
     animateDots();
+
   }, [dots]);
 
-  return <canvas ref={canvasRef} width={typeof window !== 'undefined' ? window.innerWidth : 0} height={typeof window !== 'undefined' ? window.innerHeight : 0} />;
+  
+  console.log('window.innerHeight', screenHeight);
+  console.log('window.innerWeight', screenWidth);
+  return <canvas ref={canvasRef} width={screenWidth} height={screenHeight} />;
 };
 
 export default Canvas;

@@ -1,4 +1,4 @@
-// Dot.txs
+// Dot.js
 export interface Dot {
     x: number;
     y: number;

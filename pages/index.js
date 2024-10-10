@@ -1,10 +1,8 @@
-'use client';
 import React, { useState, useEffect } from 'react';
-import Canvas from '../app/components/Canvas';
-import { Dot } from '../app/components/Dot';
+import Canvas from './components/Canvas';
+import { Dot } from './components/Dot';
 
-
-const Home: React.FC = () => {
+const Home = () => {
   const numDots = 50;
   const [canvasWidth, setCanvasWidth] = useState(window.innerWidth);
   const [canvasHeight, setCanvasHeight] = useState(window.innerHeight);
@@ -21,7 +19,7 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  const dots: Dot[] = Array.from({ length: numDots }, () => ({
+  const dots = Array.from({ length: numDots }, () => ({
     x: Math.random() * canvasWidth,
     y: Math.random() * canvasHeight,
     speedX: Math.random() - 0.5, // Random speed between -0.5 and 0.5

@@ -25,6 +25,10 @@ const Home = () => {
   return (
     <div>
       <Canvas dots={dots} range={range} />
+      <div className="centered-text">
+        <h1>Hey, I'm Jared Sanders.</h1>
+        <p>I'm a computer science student</p>
+      </div>
     </div>
   );
 };

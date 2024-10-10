@@ -17,8 +17,8 @@ const Canvas = ({ dots, range }) => {
       context.beginPath();
       context.arc(dot.x, dot.y, 2, 0, 2 * Math.PI);
       context.fill();
-      dot.x += dot.speedX*2;
-      dot.y += dot.speedY*2;
+      dot.x += dot.speedX * 4;
+      dot.y += dot.speedY * 4;
 
       // Adjust boundary conditions as needed
       if (dot.x <= -10 || dot.x >= canvas.width + 10 || dot.y <= -10 || dot.y >= canvas.height + 10) {
@@ -82,16 +82,25 @@ const Canvas = ({ dots, range }) => {
       setScreenHeight(window.innerHeight);
     };
 
+    // Initial call to set the width and height when the window is first defined
     handleResize();
 
     animateDots();
+    window.addEventListener('resize', handleResize);
 
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [dots]);
 
-  
-  console.log('window.innerHeight', screenHeight);
-  console.log('window.innerWeight', screenWidth);
-  return <canvas ref={canvasRef} width={screenWidth} height={screenHeight} />;
+  return (
+      <canvas
+        ref={canvasRef}
+        width={screenWidth}
+        height={screenHeight}
+        style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}
+      />
+  );
 };
 
 export default Canvas;

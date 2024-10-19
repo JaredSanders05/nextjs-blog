@@ -1,50 +1,223 @@
-:root {
-  --background: 	rgb(255, 255, 255);
-  --foreground:   rgb(0, 0, 0);
+:root {  
+  --background: rgb(255, 255, 255);  
+  --foreground: rgb(0, 0, 0);
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
+html, body {  
+  max-width: 100vw;  
+  overflow-x: hidden;  
+  -ms-overflow-style: none;  /* IE and Edge */  
   scrollbar-width: none;  /* Firefox */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
+body {  
+  color: var(--foreground);  
+  background: var(--background);  
+  font-family: Arial, Helvetica, sans-serif;  
+  -webkit-font-smoothing: antialiased;  
   -moz-osx-font-smoothing: grayscale;
-
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar {  
   display: none;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
+* {  
+  box-sizing: border-box;  
+  padding: 0;  
   margin: 0;
 }
 
-a {
-  color: inherit;
+a {  
+  color: inherit;  
   text-decoration: none;
 }
 
-.centered-text {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.centered-text {  
+  position: absolute;  
+  top: 50vh;  
+  left: 50vw;  
+  transform: translate(-50%, -50%);  
   text-align: left;
-  
 }
 
-.centered-text p{
-  font-size: large;
+.centered-text p {  
+  font-size: large;  
   padding-top: 5px;
 }
+
+.spotify-container {  
+  position: absolute;  
+  top: 100vh;  
+  bottom: 0;  
+  width: 100%;  
+  text-align: center;
+}
+
+.App-logo {  
+  height: 40vmin;  
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {  
+  .App-logo {    
+      animation: App-logo-spin infinite 20s linear;  
+  }
+}
+
+.App-header {  
+  min-height: 100vh;  
+  display: flex;  
+  padding: 10%;  
+  text-align: left;  
+  flex-direction: column;  
+  align-items: left;  
+  justify-content: left;  
+  font-size: calc(10px + 2vmin);  
+  color: black;
+}
+
+.App-header h1 {  
+  font-size: 24px;  
+  padding-bottom: 1%;
+}
+
+.App-header h2 {  
+  font-size: 16px;  
+  padding-bottom: 3%;
+}
+
+.currently-playing {  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;
+}
+
+.scroll-container {  
+  position: relative;  
+  width: 100%;  
+  overflow: hidden;
+}
+
+.scroll-arrow {  
+  background: none;  
+  border: none;  
+  color: rgb(0, 0, 0);  
+  font-size: 2rem;  
+  cursor: pointer;
+}
+
+.scroll-arrow.left {  
+  left: 0px;  /* Adjust as needed */  
+  z-index: 1;
+}
+
+.scroll-arrow.right {  
+  right: 0px;  /* Adjust as needed */  
+  z-index: 1;
+}
+
+.scroll-content {  
+  display: flex;  
+  overflow-x: auto;  
+  scroll-behavior: smooth;  
+  width: 100%;  
+  align-items: center;  /* Align content in the center */
+  position: relative;
+}
+
+.scroll-content h2 {  
+  position: absolute;  
+  top: 10px;  /* Position h2 at the top */
+  left: 50%;  
+  transform: translateX(-50%);  /* Center h2 horizontally */
+  text-align: center;
+}
+
+.currently-playing, .top-artists, .top-tracks {  
+  flex: 1;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: flex-start;  
+  justify-content: center;  
+  margin: 20px;  
+  width: 300px;  /* Ensure same width */  
+  height: 300px;  /* Ensure same height */
+}
+
+.top-artists, .top-tracks {  
+  font-size: 14px;  /* Make text smaller */
+}
+
+.track-cover, .artist-profile {  
+  width: 60px;  /* Make image smaller */  
+  height: 60px;  /* Make image smaller */  
+  border-radius: 10px;  
+  margin-bottom: 10px;
+}
+
+.album-cover {  
+  width: 150px;  
+  height: 150px;  
+  border-radius: 10px;  
+  margin-bottom: 10px;
+}
+
+.track-info, .artist-info {  
+  text-align: center;  
+  max-width: 300px;  /* Ensure same width */
+}
+
+ul {  
+  list-style-type: none;  
+  padding: 0;
+}
+
+li {  
+  display: flex;  
+  align-items: center;  /* Center items vertically */
+  margin: 5px 0;  /* Reduce margin to fit better */
+  position: relative;
+}
+
+.artist-profile {  
+  margin-right: 5px;
+}
+
+li p {  
+  margin-left: 10px;  /* Adjust as needed */
+  font-size: 20px;
+}
+
+.artist-profile {  
+  margin-right: 5px;
+}
+
+.currently-playing, .top-artists, .top-tracks {  
+  flex: 1;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: flex-start;  
+  justify-content: center;  
+  margin: 20px;  
+  width: 300px;  /* Ensure same width */  
+  height: 300px;  /* Ensure same height */
+}
+
+.track-info {  
+  display: flex;  
+  align-items: center;  /* Center items vertically */
+}
+
+.album-cover {  
+  width: 150px;  
+  height: 150px;  
+  border-radius: 10px;  
+  margin-bottom: 10px;
+}
+
+.track-info p {  
+  margin-left: 10px;  /* Add space between image and text */
+  font-size: 20px;
+}
+

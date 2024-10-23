@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div>
-      <Canvas dots={dots} range={range} />
+      {/* <Canvas dots={dots} range={range} />
         <div className="centered-text">
           <h1>Hey, I'm Jared Sanders.</h1>
           <p>I’m a dedicated student with a passion for coding 
@@ -36,7 +36,7 @@ const Home = () => {
              creating revolutionary technology and am always 
              eager to learn and grow, welcoming constructive 
              criticism to improve my skills.</p> 
-        </div>
+        </div> */}
       <div className="spotify-container">
         <SpotifyNowPlaying />
       </div>

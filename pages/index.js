@@ -38,7 +38,7 @@ const Home = () => {
              criticism to improve my skills.</p> 
         </div>
       <div className="spotify-container">
-        <SpotifyNowPlaying />
+        {/* <SpotifyNowPlaying /> */}
       </div>
     </div>
 

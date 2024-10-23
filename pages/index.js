@@ -37,9 +37,9 @@ const Home = () => {
              eager to learn and grow, welcoming constructive 
              criticism to improve my skills.</p> 
         </div> */}
-      <div className="spotify-container">
+      {/* <div className="spotify-container"> */}
         <SpotifyNowPlaying />
-      </div>
+      {/* </div> */}
     </div>
 
   );

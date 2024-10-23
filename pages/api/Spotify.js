@@ -4,6 +4,8 @@ import axios from 'axios';
 const CLIENT_ID = "7d795eebfbe44d3db59d5691006cd34d";
 const YOUR_CLIENT_SECRET = "c1811e7d4cee4efbbe598a9d1140d0d2";
 const REDIRECT_URI = "https://nextjs-blog-hu0w13k9g-jareds-projects-75a0b95f.vercel.app/";
+// const REDIRECT_URI = "http://localhost:3000";
+
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "code";
 const SCOPE = 'user-read-currently-playing user-top-read';
